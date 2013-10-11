@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/fidel/workspace/Cloud/giraph-1.0.0/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/HBaseVertexOutputFormat.java">
+</file>
+<file name="/home/fidel/workspace/Cloud/giraph-1.0.0/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/package-info.java">
+</file>
+<file name="/home/fidel/workspace/Cloud/giraph-1.0.0/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/HBaseVertexInputFormat.java">
+</file>
+</checkstyle>

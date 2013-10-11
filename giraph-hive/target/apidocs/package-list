@@ -1,0 +1,6 @@
+org.apache.giraph.hive
+org.apache.giraph.hive.common
+org.apache.giraph.hive.input
+org.apache.giraph.hive.input.edge
+org.apache.giraph.hive.input.vertex
+org.apache.giraph.hive.output

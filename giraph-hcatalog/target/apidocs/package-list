@@ -1,0 +1,2 @@
+org.apache.giraph.io.hcatalog
+org.apache.hcatalog.mapreduce

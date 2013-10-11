@@ -1,0 +1,93 @@
+
+*****************************************************
+Summary
+-------
+Generated at: 2013-09-25T16:33:31+08:00
+Notes: 0
+Binaries: 0
+Archives: 0
+Standards: 56
+
+Apache Licensed: 56
+Generated Documents: 0
+
+JavaDocs are generated and so license header is optional
+Generated files do not required license headers
+
+0 Unknown Licenses
+
+*******************************
+
+Unapproved licenses:
+
+
+*******************************
+
+Archives:
+
+*****************************************************
+  Files with Apache License headers will be marked AL
+  Binary files (which do not require AL headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc will be marked N
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/pom.xml
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/VerifyMessage.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkWorkerContext.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMutateGraphVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/Algorithm.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkWithRestartVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/AggregatorsTestVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleCombinerVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimplePageRankVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleVertexWithWorkerContext.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/package-info.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleTriangleClosingVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMasterComputeVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/VertexWithDoubleValueNullEdgeTextOutputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/NormalizingLongDoubleDoubleTextInputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleFailVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/ConnectedComponentsVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkVertexMasterCompute.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleLongDoubleDoubleDoubleIdentityVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleTextVertexOutputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMsgVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/PartitionContextTestVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/IdentityVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/VertexWithDoubleValueDoubleEdgeTextOutputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleCheckpointVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/GeneratedVertexReader.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleInDegreeCountVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/LongDoubleNullTextInputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleAggregatorWriter.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/LongDoubleDoubleTextInputFormat.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/PageRankVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleSuperstepVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleShortestPathsVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleOutDegreeCountVertex.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/main/assembly/compile.xml
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestManualCheckpoint.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestMutateGraph.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestPartitionContext.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestMaxSuperstep.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/ConnectedComponentsVertexTestInMemory.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/SimpleShortestPathsVertexTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/RandomWalkTestUtils.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/SimpleTriangleClosingVertexTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/TryMultiIpcBindingPortsTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/TestPageRank.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/ConnectedComponentsVertexTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/RandomWalkWithRestartVertexTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/PageRankVertexTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/examples/MinimumIntCombinerTest.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/aggregators/TestAggregatorsHandling.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestAutoCheckpoint.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestNotEnoughMapTasks.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/vertex/TestVertexTypes.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestBspBasic.java
+  AL    /home/fidel/workspace/Cloud/giraph-1.0.0/giraph-examples/src/test/java/org/apache/giraph/TestGraphPartitioner.java
+ 
+ *****************************************************
+ Printing headers for files without AL header...
+ 
+ 
