@@ -183,7 +183,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
     setupAndInitializeGiraphMetrics();
     // Do some task setup (possibly starting up a Zookeeper service)
     context.setStatus("setup: Initializing Zookeeper services.");
-    locateZookeeperClasspath(zkPathList);
+    if(conf.get(GiraphConstants.ZOOKEEPER_JAR)!=null){ System.out.println(conf.get(GiraphConstants.ZOOKEEPER_JAR));}else{locateZookeeperClasspath(zkPathList);}
     serverPortList = conf.getZookeeperList();
     if (serverPortList == null && startZooKeeperManager()) {
       return; // ZK connect/startup failed
@@ -194,7 +194,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
       }
     }
     context.setStatus("setup: Connected to Zookeeper service " +
-      serverPortList);
+      serverPortList);//z*** determine the mapper's work! ***
     this.graphFunctions = determineGraphFunctions(conf, zkManager);
     // Sometimes it takes a while to get multiple ZooKeeper servers up
     if (conf.getZooKeeperServerCount() > 1) {
@@ -202,7 +202,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
         GiraphConstants.DEFAULT_ZOOKEEPER_TICK_TIME);
     }
     int sessionMsecTimeout = conf.getZooKeeperSessionTimeout();
-    try {
+    try {//z*** there is the entrance! ***
       instantiateBspService(serverPortList, sessionMsecTimeout);
     } catch (IOException e) {
       LOG.error("setup: Caught exception just before end of setup", e);

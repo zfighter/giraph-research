@@ -44,7 +44,7 @@ public class GiraphRunner implements Tool {
   static {
     Configuration.addDefaultResource("giraph-site.xml");
   }
-
+  ////
   /** Class logger */
   private static final Logger LOG = Logger.getLogger(GiraphRunner.class);
   /** Writable conf */

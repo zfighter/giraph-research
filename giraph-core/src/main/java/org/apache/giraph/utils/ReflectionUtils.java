@@ -94,7 +94,7 @@ public class ReflectionUtils {
           type = newType;
         }
 
-      } else {
+      } else {//
         ParameterizedType parameterizedType = (ParameterizedType) type;
         Class<?> rawType = (Class<?>) parameterizedType.getRawType();
 
