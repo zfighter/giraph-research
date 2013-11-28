@@ -13,6 +13,7 @@ org.apache.giraph.comm.requests
 org.apache.giraph.conf
 org.apache.giraph.counters
 org.apache.giraph.edge
+org.apache.giraph.examples
 org.apache.giraph.graph
 org.apache.giraph.integration
 org.apache.giraph.io

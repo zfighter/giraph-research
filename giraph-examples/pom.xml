@@ -103,9 +103,7 @@ under the License.
   <profiles>
     <profile>
       <id>hadoop_0.20.203</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
+      
       <build>
         <plugins>
           <plugin>
@@ -130,6 +128,9 @@ under the License.
 
     <profile>
       <id>hadoop_1.0</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <build>
         <plugins>
           <plugin>

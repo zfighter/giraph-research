@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+  <property>
+     <name>dfs.datanode.handler.count</name>
+     <value>5</value>
+     <description>The number of server threads for the datanode.</description>
+  </property>
+
+  <property>
+     <name>dfs.namenode.handler.count</name>
+     <value>5</value>
+     <description>The number of server threads for the namenode.</description>
+  </property>
+
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+
+  <property>
+     <name>dfs.permissions</name>
+     <value>false</value>
+  </property>
+
+</configuration>

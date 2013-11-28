@@ -602,9 +602,7 @@ under the License.
         <module>giraph-hbase</module>
         <module>giraph-hcatalog</module>
       </modules>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
+      
       <properties>
         <hadoop.version>0.20.203.0</hadoop.version>
         <munge.symbols>HADOOP_NON_JOBCONTEXT_IS_INTERFACE,HADOOP_1_SECURITY,HADOOP_1_SECRET_MANAGER</munge.symbols>
@@ -631,6 +629,9 @@ under the License.
         <module>giraph-hbase</module>
         <module>giraph-hcatalog</module>
       </modules>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <properties>
         <hadoop.version>1.1.0</hadoop.version>
         <munge.symbols>HADOOP_NON_JOBCONTEXT_IS_INTERFACE,HADOOP_1_SECURITY,HADOOP_1_SECRET_MANAGER</munge.symbols>
