@@ -176,7 +176,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
     context.setStatus("setup: Beginning worker setup.");
     conf = new ImmutableClassesGiraphConfiguration<I, V, E, M>(
       context.getConfiguration());
-    determineClassTypes(conf);
+    determineClassTypes(conf);//this step set the classType of Vertex<>'s parameters
     // configure global logging level for Giraph job
     initializeAndConfigureLogging();
     // init the metrics objects
@@ -256,7 +256,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
       context.progress();
       graphState = checkSuperstepRestarted(
         aggregatorUsage, superstep, graphState);
-      prepareForSuperstep(graphState);
+      prepareForSuperstep(graphState);//here, call this function to do the work before a superstep.
       context.progress();
       MessageStoreByPartition<I, M> messageStore =
         serviceWorker.getServerData().getCurrentMessageStore();
@@ -274,7 +274,7 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
           messageStore, numPartitions, numThreads);
       }
       finishedSuperstepStats = completeSuperstepAndCollectStats(
-        partitionStatsList, superstepTimerContext, graphState);
+        partitionStatsList, superstepTimerContext, graphState);//this step finish this superstep and do the postSuperstep
       // END of superstep compute loop
     } while (!finishedSuperstepStats.allVerticesHalted());
 

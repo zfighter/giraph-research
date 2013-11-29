@@ -25,10 +25,12 @@ import org.apache.giraph.conf.GiraphConstants;
 import org.apache.giraph.conf.ImmutableClassesGiraphConfiguration;
 import org.apache.giraph.graph.GraphMapper;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.ipc.Client;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.log4j.Logger;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -223,6 +225,11 @@ public class GiraphJob {
     ImmutableClassesGiraphConfiguration conf =
         new ImmutableClassesGiraphConfiguration(giraphConfiguration);
     checkLocalJobRunnerConfiguration(conf);
+    //this part is just used for testing to delete the output dir.
+    File outputDir = new File(conf.get("mapred.work.output.dir")+"/partitions");
+    if(outputDir.exists()){
+    	outputDir.delete();
+    }
     Job submittedJob = new Job(conf, jobName);
     if (submittedJob.getJar() == null) {
       submittedJob.setJarByClass(getClass());

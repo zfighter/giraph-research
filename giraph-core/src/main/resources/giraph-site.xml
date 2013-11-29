@@ -31,5 +31,10 @@ under the License.
     <name>giraph.zkJar</name>
     <value>/home/fidel/workspace/Git/giraph-research/giraph-core/giraph-1.0.0-for-hadoop-1.1.0-jar-with-dependencies.jar</value>
   </property>
+  
+  <property> 
+   <name>mapreduce.job.counters.limit</name>
+    <value>100</value>
+  </property>
 
 </configuration>

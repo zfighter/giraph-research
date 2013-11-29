@@ -1,5 +1,6 @@
 package cn.ac.ict.partition;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +73,7 @@ public class MySimpleLPPartitionVertex extends Vertex<LongWritable, LongWritable
 			}
 			newLabel = minLabel;
 		}
-		LOG.info("new label: " + newLabel);
+		LOG.info("ID: "+getId().get()+" new label: " + newLabel);
 		//3: if the label is changed, sending massage to its neighbors.
 		if(newLabel != getValue().get()){
 			setValue(new LongWritable(newLabel));
