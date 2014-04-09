@@ -31,6 +31,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.net.URI;
 
 /**
@@ -43,6 +45,7 @@ import java.net.URI;
 public class GiraphRunner implements Tool {
   static {
     Configuration.addDefaultResource("giraph-site.xml");
+    PropertyConfigurator.configure("/home/fidel/workspace/Git/giraph-research/giraph-core/src/main/resources/log4j.properties");
   }
   ////
   /** Class logger */

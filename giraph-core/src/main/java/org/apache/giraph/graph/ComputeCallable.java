@@ -21,6 +21,7 @@ import org.apache.giraph.bsp.CentralizedServiceWorker;
 import org.apache.giraph.comm.WorkerClientRequestProcessor;
 import org.apache.giraph.comm.messages.MessageStoreByPartition;
 import org.apache.giraph.comm.netty.NettyWorkerClientRequestProcessor;
+import org.apache.giraph.conf.GiraphConstants;
 import org.apache.giraph.conf.ImmutableClassesGiraphConfiguration;
 import org.apache.giraph.io.SimpleVertexWriter;
 import org.apache.giraph.metrics.GiraphMetrics;
@@ -72,6 +73,8 @@ public class ComputeCallable<I extends WritableComparable, V extends Writable,
     implements Callable<Collection<PartitionStats>> {
   /** Class logger */
   private static final Logger LOG  = Logger.getLogger(ComputeCallable.class);
+  /** Add by fidel, used to trace*/
+  private static Logger TLOG = Logger.getLogger("tracerLogger");
   /** Class time object */
   private static final Time TIME = SystemTime.get();
   /** Context */
@@ -180,7 +183,7 @@ public class ComputeCallable<I extends WritableComparable, V extends Writable,
     }
 
     // Return VertexWriter after the usage
-    serviceWorker.getSuperstepOutput().returnVertexWriter(vertexWriter);
+    serviceWorker.getSuperstepOutput().returnVertexWriter(vertexWriter);//return the writer
 
     if (LOG.isInfoEnabled()) {
       float seconds = Times.getNanosSince(TIME, startNanos) /
@@ -242,6 +245,12 @@ public class ComputeCallable<I extends WritableComparable, V extends Writable,
           // Need to save the vertex changes (possibly)
           partition.saveVertex(vertex);
         }
+        //################## add by fidel
+        else{
+        	if(GiraphConstants.MY_TEST.get(configuration))
+        		TLOG.info("ht");
+        }
+        //##################
         if (vertex.isHalted()) {
           partitionStats.incrFinishedVertexCount();
         }

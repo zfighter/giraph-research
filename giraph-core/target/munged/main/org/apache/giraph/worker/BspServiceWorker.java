@@ -453,25 +453,25 @@ public class BspServiceWorker<I extends WritableComparable,
     // 4. Wait until the INPUT_SPLIT_ALL_DONE_PATH node has been created
     // 5. Process any mutations deriving from add edge requests
     // 6. Wait for superstep INPUT_SUPERSTEP to complete.
-    if (getRestartedSuperstep() != UNSET_SUPERSTEP) {
+    if (getRestartedSuperstep() != UNSET_SUPERSTEP) {//if restartSuperstep is reseted, restart the cached superstep
       setCachedSuperstep(getRestartedSuperstep());
       return new FinishedSuperstepStats(0, false, 0, 0, true);
     }
 
-    JSONObject jobState = getJobState();
-    if (jobState != null) {
+    JSONObject jobState = getJobState();//get current job state from 'masterJobStatePath', if empty return null
+    if (jobState != null) {//if is the first time(initialization), this must be null
       try {
         if ((ApplicationState.valueOf(jobState.getString(JSONOBJ_STATE_KEY)) ==
             ApplicationState.START_SUPERSTEP) &&
             jobState.getLong(JSONOBJ_SUPERSTEP_KEY) ==
-            getSuperstep()) {
+            getSuperstep()) {//the ApplicationState is about Unknow/StartSuperstep/Failed/Finished
           if (LOG.isInfoEnabled()) {
             LOG.info("setup: Restarting from an automated " +
                 "checkpointed superstep " +
                 getSuperstep() + ", attempt " +
                 getApplicationAttempt());
           }
-          setRestartedSuperstep(getSuperstep());
+          setRestartedSuperstep(getSuperstep());//here, set the restartedSuperstep
           return new FinishedSuperstepStats(0, false, 0, 0, true);
         }
       } catch (JSONException e) {
@@ -577,7 +577,7 @@ public class BspServiceWorker<I extends WritableComparable,
               partition.getEdgeCount(),
               0);
       partitionStatsList.add(partitionStats);
-      getPartitionStore().putPartition(partition);
+      getPartitionStore().putPartition(partition);//why??
     }
     workerGraphPartitioner.finalizePartitionStats(
         partitionStatsList, getPartitionStore());
@@ -674,17 +674,17 @@ public class BspServiceWorker<I extends WritableComparable,
     // 3. Wait until the partition assignment is complete and get it
     // 4. Get the aggregator values from the previous superstep
     if (getSuperstep() != INPUT_SUPERSTEP) {
-      workerServer.prepareSuperstep(graphState);
-    }
-
-    registerHealth(getSuperstep());
+      workerServer.prepareSuperstep(graphState);//in this function, nettyWorkerServer do the mutations of vertex before super step.
+    }                                           //including add/remove vertex and add/remove edges.
+                                                //both mutation and message(to add vertex and edge which is not here) can add vertex 
+    registerHealth(getSuperstep());//create the path on zookeeper
 
     String addressesAndPartitionsPath =
         getAddressesAndPartitionsPath(getApplicationAttempt(),
             getSuperstep());
     AddressesAndPartitionsWritable addressesAndPartitions =
         new AddressesAndPartitionsWritable(
-            workerGraphPartitioner.createPartitionOwner().getClass());
+            workerGraphPartitioner.createPartitionOwner().getClass());//here, createPartitionOwner is to create BasicPartitionOwner
     try {
       while (getZkExt().exists(addressesAndPartitionsPath, true) ==
           null) {
@@ -784,6 +784,16 @@ public class BspServiceWorker<I extends WritableComparable,
       LOG.info("finishSuperstep: Completed superstep " + getSuperstep() +
           " with global stats " + globalStats);
     }
+    
+    if(GiraphConstants.MY_TEST.get(getConfiguration())){
+    	LOG.getLogger("debugLogger").info("##"+getSuperstep()+"finishSuperstep: Superstep " + getSuperstep() +
+    	  " with global stats " + globalStats);
+    	LOG.getLogger("debugLogger").info("##"+getSuperstep()+"finishSuperstep: Superstep " + getSuperstep() +
+          ", messages = " + workerSentMessages + " " +
+          MemoryUtils.getRuntimeMemoryStats());
+    	LOG.getLogger("debugLogger").info("#############################");
+    }
+    
     incrCachedSuperstep();
     getContext().setStatus("finishSuperstep: (all workers done) " +
         getGraphTaskManager().getGraphFunctions().toString() +

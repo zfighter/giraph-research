@@ -619,7 +619,7 @@ public class BspServiceMaster<I extends WritableComparable,
 
     // Create at least as many splits as the total number of input threads.
     int minSplitCountHint = healthyWorkerInfoList.size() *
-        conf.getNumInputSplitsThreads();
+        conf.getNumInputSplitsThreads();//default numInputSplitsThreads is 1.
 
     // Note that the input splits may only be a sample if
     // INPUT_SPLIT_SAMPLE_PERCENT is set to something other than 100

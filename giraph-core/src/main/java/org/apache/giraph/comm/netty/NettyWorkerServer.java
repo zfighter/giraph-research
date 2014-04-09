@@ -172,7 +172,7 @@ public class NettyWorkerServer<I extends WritableComparable,
       }
     }
     // Keep track of the vertices which are not here but have received messages
-    for (Integer partitionId : service.getPartitionStore().getPartitionIds()) {
+    for (Integer partitionId : service.getPartitionStore().getPartitionIds()) {//it can add vertex by add an edge to a non-exist vertex.
       Iterable<I> destinations = serverData.getCurrentMessageStore().
           getPartitionDestinationVertices(partitionId);
       if (!Iterables.isEmpty(destinations)) {
@@ -192,7 +192,7 @@ public class NettyWorkerServer<I extends WritableComparable,
     }
     // Resolve all graph mutations
     VertexResolver<I, V, E, M> vertexResolver =
-        conf.createVertexResolver(graphState);
+        conf.createVertexResolver(graphState);//DefaultVertexResolver.
     for (Entry<Integer, Collection<I>> e :
         resolveVertexIndices.asMap().entrySet()) {
       Partition<I, V, E, M> partition =
@@ -224,9 +224,9 @@ public class NettyWorkerServer<I extends WritableComparable,
               " with mutations " +
               mutations);
         }
-        if (vertex != null) {
+        if (vertex != null) {//if vertex is not null, it means vertex has been changed; if vertex is null, it means this vertex is deleted.
           partition.putVertex(vertex);
-        } else if (originalVertex != null) {
+        } else if (originalVertex != null) {//if vertex is null but original vertex is not null, should delete it.
           partition.removeVertex(originalVertex.getId());
         }
       }

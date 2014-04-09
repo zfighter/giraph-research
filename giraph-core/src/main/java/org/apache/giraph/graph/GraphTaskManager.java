@@ -56,6 +56,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import cn.ac.ict.partition.xtest.DefineHub;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -252,14 +254,14 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
         LOG.debug("execute: " + MemoryUtils.getRuntimeMemoryStats());
       }
       context.progress();
-      serviceWorker.exchangeVertexPartitions(masterAssignedPartitionOwners);
+      serviceWorker.exchangeVertexPartitions(masterAssignedPartitionOwners);//exchange partitions with other workers.
       context.progress();
       graphState = checkSuperstepRestarted(
         aggregatorUsage, superstep, graphState);
       prepareForSuperstep(graphState);//here, call this function to do the work before a superstep.
       context.progress();
       MessageStoreByPartition<I, M> messageStore =
-        serviceWorker.getServerData().getCurrentMessageStore();
+        serviceWorker.getServerData().getCurrentMessageStore();//get all messages.
       int numPartitions = serviceWorker.getPartitionStore().getNumPartitions();
       int numThreads = Math.min(numComputeThreads, numPartitions);
       if (LOG.isInfoEnabled()) {
@@ -268,10 +270,12 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
           numComputeThreads + " thread(s) on superstep " + superstep);
       }
       partitionStatsList.clear();
+      //################### add by fidel, to find hubs
+      
       // execute the current superstep
       if (numPartitions > 0) {
         processGraphPartitions(context, partitionStatsList, graphState,
-          messageStore, numPartitions, numThreads);
+          messageStore, numPartitions, numThreads);//here, the main process in one super step.
       }
       finishedSuperstepStats = completeSuperstepAndCollectStats(
         partitionStatsList, superstepTimerContext, graphState);//this step finish this superstep and do the postSuperstep
@@ -403,11 +407,11 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
 
     serviceWorker.getWorkerContext().setGraphState(graphState);
     GiraphTimerContext preSuperstepTimer = wcPreSuperstepTimer.time();
-    serviceWorker.getWorkerContext().preSuperstep();
+    serviceWorker.getWorkerContext().preSuperstep();//workerContext.preSuperstep is user define.
     preSuperstepTimer.stop();
     context.progress();
 
-    for (WorkerObserver obs : serviceWorker.getWorkerObservers()) {
+    for (WorkerObserver obs : serviceWorker.getWorkerObservers()) {//trigger!
       obs.preSuperstep(graphState.getSuperstep());
       context.progress();
     }
@@ -915,5 +919,10 @@ public class GraphTaskManager<I extends WritableComparable, V extends Writable,
       LOG.error("run: Worker failure failed on another RuntimeException, " +
           "original expection will be rethrown", e1);
     }
+  }
+  
+  //############################# add by fidel ###########################
+  private boolean isMyTest(Configuration conf){
+	  return GiraphConstants.MY_TEST.get(conf);
   }
 }

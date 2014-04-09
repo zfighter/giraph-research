@@ -119,4 +119,7 @@ public abstract class WorkerContext implements WorkerAggregatorUsage {
   public <A extends Writable> A getAggregatedValue(String name) {
     return graphState.getWorkerAggregatorUsage().<A>getAggregatedValue(name);
   }
+  
+//  ####################### add by fidel #################
+  
 }

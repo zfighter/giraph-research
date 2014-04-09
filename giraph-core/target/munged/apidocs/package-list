@@ -1,3 +1,7 @@
+cn.ac.ict.partition
+cn.ac.ict.partition.io.formats
+cn.ac.ict.partition.xtest
+cn.ac.ict.util
 com.yammer.metrics.core
 org.apache.giraph
 org.apache.giraph.aggregators

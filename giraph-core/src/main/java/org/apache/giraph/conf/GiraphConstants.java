@@ -657,5 +657,25 @@ public interface GiraphConstants {
    */
   BooleanConfOption STATIC_GRAPH =
       new BooleanConfOption("giraph.isStaticGraph", false);
+  
+  
+  //add by fidel
+  /**
+   * Just for my test
+   */
+  BooleanConfOption MY_TEST = 
+		  new BooleanConfOption("giraph.mytest", false);
+  
+ /**
+  * hop attenuation for LPA 
+  */
+  FloatConfOption HOP_ATTENUATION =
+		  new FloatConfOption("giraph.LPA.hopAttenuation", 0.1f);
+  
+  /**
+   * multi-lines input format
+   */
+  BooleanConfOption MULTI_LINES_PER_VERTEX =
+		  new BooleanConfOption("giraph.inputFormat.multiLinesPerVertex", false);
 }
 // CHECKSTYLE: resume InterfaceIsTypeCheck

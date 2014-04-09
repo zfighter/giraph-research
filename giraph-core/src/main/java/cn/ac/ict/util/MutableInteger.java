@@ -1,21 +1,9 @@
 package cn.ac.ict.util;
 
-public class MutableInteger implements Mutable<Integer> {
-	
-	private int value; 
+public class MutableInteger extends MutationBase<Integer> {
 
 	public MutableInteger(int value){
-		this.value = value;
-	}
-	
-	@Override
-	public void set(Integer value) {
-		this.value = value;
-	}
-
-	@Override
-	public Integer get() {
-		return this.value;
+		super(value);
 	}
 
 }

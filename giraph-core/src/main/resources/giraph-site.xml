@@ -36,5 +36,30 @@ under the License.
    <name>mapreduce.job.counters.limit</name>
     <value>100</value>
   </property>
+  
+  <property> 
+   <name>giraph.mytest</name>
+    <value>true</value>
+  </property>
+  
+  <property> 
+   <name>giraph.LPA.hopAttenuation</name>
+    <value>0.35</value>
+  </property>
+  
+  <property>
+  	<name>reverse.id.and.value</name>
+  	<vlaue>true</vlaue>
+  </property>
+  
+  <property>
+  	<name>number.servers</name>
+  	<value>8</value>
+  </property>
+  
+  <property>
+  	<name>base.hash</name>
+  	<value>5381</value>
+  </property>
 
 </configuration>

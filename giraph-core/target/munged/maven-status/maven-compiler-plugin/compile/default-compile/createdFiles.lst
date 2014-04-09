@@ -1,5 +1,7 @@
 org/apache/giraph/metrics/GiraphMetrics.class
 org/apache/giraph/partition/DiskBackedPartitionStore$State.class
+cn/ac/ict/partition/MyLPAWithHopVertex.class
+cn/ac/ict/partition/MessageValue.class
 org/apache/giraph/graph/GraphStateAware.class
 org/apache/giraph/comm/aggregators/SendAggregatorCache.class
 org/apache/giraph/conf/AllOptions.class
@@ -10,8 +12,10 @@ org/apache/giraph/examples/SimpleMasterComputeVertex$SimpleMasterCompute.class
 org/apache/giraph/edge/EdgeStore.class
 org/apache/giraph/utils/TimedLogger.class
 org/apache/giraph/partition/DiskBackedPartitionStore$PutPartition.class
+cn/ac/ict/partition/io/formats/IdValueEdgesTextOutputFormat.class
 org/apache/giraph/job/GiraphJobObserver.class
 org/apache/giraph/partition/SimplePartition.class
+cn/ac/ict/partition/io/formats/LongLongVertexInputFormat$LongLongVertexReader.class
 org/apache/giraph/worker/WorkerObserver.class
 org/apache/giraph/graph/Vertex.class
 org/apache/giraph/comm/netty/handler/WorkerRequestServerHandler$Factory.class
@@ -31,6 +35,7 @@ org/apache/giraph/utils/ProgressableUtils$1.class
 org/apache/giraph/io/formats/TextEdgeInputFormat$TextEdgeReaderFromEachLine.class
 org/apache/giraph/worker/BspServiceWorker$1$1.class
 org/apache/giraph/aggregators/IntSumAggregator.class
+cn/ac/ict/partition/MyLPAWithHubVertex.class
 org/apache/giraph/edge/LongDoubleHashMapEdges$LongDoubleHashMapMutableEdge.class
 org/apache/giraph/io/iterables/GiraphReader.class
 org/apache/giraph/comm/netty/NettyWorkerClient.class
@@ -61,6 +66,7 @@ org/apache/giraph/comm/MasterServer.class
 org/apache/giraph/combiner/SimpleSumCombiner.class
 org/apache/giraph/utils/TaskIdsPermitsBarrier.class
 org/apache/giraph/examples/SimplePageRankVertex$SimplePageRankVertexMasterCompute.class
+cn/ac/ict/util/Mutable.class
 org/apache/giraph/examples/NormalizingLongDoubleDoubleTextInputFormat$NormalizingLongDoubleDoubleDoubleVertexReader.class
 org/apache/giraph/examples/SimpleVertexWithWorkerContext$EmitterWorkerContext.class
 org/apache/giraph/graph/AddressesAndPartitionsWritable.class
@@ -69,12 +75,17 @@ org/apache/giraph/io/formats/SequenceFileVertexInputFormat.class
 org/apache/giraph/utils/RepresentativeByteArrayIterable$RepresentativeByteArrayIterableIterator.class
 org/apache/giraph/aggregators/BooleanOrAggregator.class
 org/apache/giraph/examples/SimpleSuperstepVertex$SimpleSuperstepVertexOutputFormat.class
+cn/ac/ict/util/MutationBase.class
+cn/ac/ict/util/MutableDouble.class
 org/apache/giraph/worker/WorkerAggregatorHandler.class
 org/apache/giraph/counters/GiraphTimers.class
+cn/ac/ict/partition/MySimpleLPAVertex.class
 org/apache/giraph/edge/LongDoubleArrayEdges$2.class
 org/apache/giraph/comm/netty/NettyClient$3.class
 org/apache/giraph/utils/JMap.class
+cn/ac/ict/partition/io/formats/TextVertexFromMultiLinesInputFormat$TextVertexReaderFromMultiLinesProcessedHandingExceptions.class
 org/apache/giraph/aggregators/DoubleMinAggregator.class
+cn/ac/ict/partition/io/formats/IdValueEdgesTextOutputFormat$IdWithValueVertexWriter.class
 org/apache/giraph/metrics/AggregatedMetrics.class
 org/apache/giraph/io/SimpleVertexWriter.class
 org/apache/giraph/comm/aggregators/AggregatorOutputStream.class
@@ -105,6 +116,7 @@ org/apache/giraph/metrics/ResetSuperstepMetricsObserver.class
 org/apache/giraph/edge/ConfigurableOutEdges.class
 org/apache/giraph/io/formats/PseudoRandomVertexInputFormat.class
 org/apache/giraph/edge/LongNullArrayEdges$1.class
+cn/ac/ict/partition/MyLPAWithHopVertex$1.class
 org/apache/giraph/partition/DiskBackedPartitionStore$4.class
 org/apache/giraph/graph/GiraphTransferRegulator.class
 org/apache/giraph/partition/MasterGraphPartitioner.class
@@ -181,6 +193,7 @@ org/apache/giraph/utils/WritableUtils.class
 org/apache/giraph/utils/MemoryUtils.class
 org/apache/giraph/comm/aggregators/CountingCache.class
 org/apache/giraph/utils/ProgressableUtils$WaitableWithoutResult.class
+cn/ac/ict/partition/xtest/DefineHub.class
 org/apache/giraph/zk/GiraphZooKeeperAdmin.class
 org/apache/giraph/conf/GiraphClasses.class
 org/apache/giraph/partition/HashMasterPartitioner.class
@@ -189,6 +202,7 @@ org/apache/giraph/aggregators/BooleanAndAggregator.class
 org/apache/giraph/io/formats/IntIntNullTextInputFormat$IntIntNullIntVertexReader.class
 org/apache/giraph/examples/PartitionContextTestVertex.class
 org/apache/giraph/examples/VerifyMessage$VerifyMessageVertex$VerifyMessageVertexWorkerContext.class
+cn/ac/ict/partition/io/formats/JsonLongLongIntLongVertexInputFormat$JsonLongLongIntLongVertexReader.class
 org/apache/giraph/aggregators/Aggregator.class
 org/apache/giraph/io/formats/PseudoRandomInputFormatConstants.class
 org/apache/giraph/comm/netty/handler/RequestDecoder.class
@@ -226,6 +240,7 @@ org/apache/giraph/io/iterables/VertexReaderWrapper.class
 org/apache/giraph/comm/netty/SaslNettyClient.class
 org/apache/giraph/edge/EdgeStore$1$1.class
 org/apache/giraph/worker/InputSplitsHandler.class
+cn/ac/ict/partition/io/formats/JsonLongLongIntLongVertexInputFormat.class
 org/apache/giraph/partition/Partition.class
 org/apache/giraph/edge/EdgeFactory.class
 org/apache/giraph/benchmark/AggregatorsBenchmark.class
@@ -260,6 +275,7 @@ org/apache/giraph/bsp/BspInputFormat.class
 com/yammer/metrics/core/NoOpTimer.class
 org/apache/giraph/comm/SendCache.class
 org/apache/giraph/comm/requests/SendWorkerMessagesRequest.class
+cn/ac/ict/partition/io/formats/TextVertexFromMultiLinesInputFormat$TextVertexReaderFromMultiLinesProcessed.class
 org/apache/giraph/partition/PartitionContext.class
 org/apache/giraph/conf/FloatConfOption.class
 org/apache/giraph/io/formats/AdjacencyListTextVertexOutputFormat.class
@@ -354,6 +370,7 @@ org/apache/giraph/utils/LoggerUtils.class
 org/apache/giraph/benchmark/AggregatorsBenchmark$AggregatorsBenchmarkMasterCompute.class
 org/apache/giraph/comm/aggregators/AggregatedValueOutputStream.class
 org/apache/giraph/master/BspServiceMaster$WriteInputSplit.class
+cn/ac/ict/partition/io/formats/TextVertexFromMultiLinesInputFormat.class
 org/apache/giraph/partition/SimpleLongRangePartitionerFactory$1.class
 org/apache/giraph/examples/SimpleSuperstepVertex.class
 org/apache/giraph/partition/BasicPartition.class
@@ -364,9 +381,11 @@ org/apache/giraph/edge/LongNullHashSetEdges.class
 org/apache/giraph/comm/netty/NettyClient$ChannelFutureAddress.class
 org/apache/giraph/worker/DefaultWorkerObserver.class
 org/apache/giraph/edge/EdgeStore$1.class
+cn/ac/ict/util/Tracer.class
 org/apache/giraph/examples/VertexWithDoubleValueDoubleEdgeTextOutputFormat.class
 org/apache/giraph/graph/GraphFunctions$6.class
 org/apache/giraph/partition/DiskBackedPartitionStore$GetPartition.class
+cn/ac/ict/util/MutableInteger.class
 org/apache/giraph/utils/InternalVertexRunner$2.class
 org/apache/giraph/partition/ByteArrayPartition$1.class
 org/apache/giraph/io/formats/TextVertexInputFormat$TextVertexReaderFromEachLineProcessed.class
@@ -376,6 +395,7 @@ org/apache/giraph/aggregators/BooleanOverwriteAggregator.class
 org/apache/giraph/integration/SuperstepHashPartitionerFactory.class
 org/apache/giraph/aggregators/DoubleSumAggregator.class
 org/apache/giraph/comm/requests/MasterRequest.class
+cn/ac/ict/partition/MessageValueForHop.class
 org/apache/giraph/utils/IncreasingBitSet.class
 org/apache/giraph/worker/WorkerThreadAggregatorUsage.class
 org/apache/giraph/metrics/ValueWithHostname.class
@@ -464,6 +484,7 @@ org/apache/giraph/edge/LongDoubleHashMapEdges$2.class
 org/apache/giraph/io/formats/TextVertexValueInputFormat$TextVertexValueReader.class
 org/apache/giraph/io/VertexOutputFormat.class
 org/apache/giraph/examples/AggregatorsTestVertex.class
+cn/ac/ict/partition/io/formats/TextVertexFromMultiLinesInputFormat$TextVertexFromMultiLinesVertexReader.class
 org/apache/giraph/utils/ByteArrayVertexIdMessages$VertexIdMessageBytesIterator.class
 org/apache/giraph/io/formats/PseudoRandomIntNullVertexInputFormat.class
 org/apache/giraph/zk/ZooKeeperExt$PathStat.class
@@ -503,6 +524,7 @@ org/apache/giraph/comm/messages/OneMessagePerVertexStore$Factory.class
 org/apache/giraph/io/formats/TextVertexInputFormat$TextVertexReader.class
 org/apache/giraph/aggregators/LongMaxAggregator.class
 org/apache/giraph/comm/messages/ByteArrayMessagesPerVertexStore$RepresentativeMessageIterator.class
+cn/ac/ict/partition/io/formats/LongLongVertexInputFormat.class
 org/apache/giraph/metrics/MeterDesc.class
 org/apache/giraph/aggregators/TextAppendAggregator.class
 org/apache/giraph/graph/DefaultVertexResolver.class
@@ -564,15 +586,18 @@ org/apache/giraph/conf/StrConfOption.class
 org/apache/giraph/comm/requests/RequestType.class
 org/apache/giraph/edge/EdgeNoValue.class
 org/apache/giraph/examples/LongDoubleNullTextInputFormat.class
+cn/ac/ict/partition/MySimpleLPAVertex$1.class
 org/apache/giraph/comm/netty/NettyClient$2.class
 org/apache/giraph/comm/messages/OneMessagePerVertexStore.class
 org/apache/giraph/examples/SimpleVertexWithWorkerContext$SimpleVertex.class
 org/apache/giraph/partition/GraphPartitionerFactory.class
 org/apache/giraph/edge/LongDoubleHashMapEdges.class
+cn/ac/ict/partition/MySimpleLPAWorkerContext.class
 org/apache/giraph/worker/BspServiceWorker.class
 com/yammer/metrics/core/NoOpHistogram.class
 org/apache/giraph/comm/netty/NettyServer$1$1.class
 org/apache/giraph/comm/SendMutationsCache.class
+cn/ac/ict/partition/MyLPAWithHubVertex$1.class
 org/apache/giraph/io/formats/AdjacencyListTextVertexOutputFormat$AdjacencyListTextVertexWriter.class
 org/apache/giraph/benchmark/ShortestPathsVertex.class
 org/apache/giraph/master/MasterObserver.class
@@ -594,6 +619,7 @@ org/apache/giraph/utils/PairList.class
 org/apache/giraph/aggregators/DoubleProductAggregator.class
 org/apache/giraph/partition/PartitionBalancer.class
 com/yammer/metrics/core/NoOpExecutorService.class
+cn/ac/ict/partition/VertexValue.class
 org/apache/giraph/graph/Vertex$2.class
 org/apache/giraph/io/formats/JsonLongDoubleFloatDoubleVertexOutputFormat$1.class
 org/apache/giraph/comm/netty/handler/RequestServerHandler$Factory.class

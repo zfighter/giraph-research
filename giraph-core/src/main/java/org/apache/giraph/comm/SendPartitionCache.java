@@ -18,8 +18,12 @@
 package org.apache.giraph.comm;
 
 import com.google.common.collect.Maps;
+
 import java.util.Map;
+
+import org.apache.giraph.conf.GiraphConstants;
 import org.apache.giraph.conf.ImmutableClassesGiraphConfiguration;
+import org.apache.giraph.edge.Edge;
 import org.apache.giraph.graph.GiraphTransferRegulator;
 import org.apache.giraph.graph.Vertex;
 import org.apache.giraph.partition.Partition;
@@ -103,9 +107,19 @@ public class SendPartitionCache<I extends WritableComparable,
 
     Vertex<I, V, E, M> oldVertex =
         partition.putVertex(vertex);
-    if (oldVertex != null) {
-      LOG.warn("addVertex: Replacing vertex " + oldVertex +
-          " with " + vertex);
+//   ########### add by fidel, for multi-lines input format
+    if(GiraphConstants.MULTI_LINES_PER_VERTEX.get(configuration)){
+    	if(oldVertex != null){
+    		for(Edge<I, E> e : oldVertex.getEdges()){
+    			vertex.addEdge(e);
+    		}
+    	}
+    }else{
+    	//this is not added by fidel
+	    if (oldVertex != null) {
+	      LOG.warn("addVertex: Replacing vertex " + oldVertex +
+	          " with " + vertex);
+	    }
     }
 
     // Requirements met to transfer?

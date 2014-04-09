@@ -309,22 +309,22 @@ public class PartitionBalancer {
 
     Set<WorkerInfo> dependentWorkerSet = new HashSet<WorkerInfo>();
     Map<WorkerInfo, List<Integer>> workerPartitionOwnerMap =
-        new HashMap<WorkerInfo, List<Integer>>();
+        new HashMap<WorkerInfo, List<Integer>>();//this Map is used to contain the worker to be operated.
     for (PartitionOwner partitionOwner : masterSetPartitionOwners) {
-      if (partitionOwner.getPreviousWorkerInfo() == null) {
+      if (partitionOwner.getPreviousWorkerInfo() == null) {//1.if previous worker info is null, it means the partition is belong to this worker from it is created.
         continue;
       } else if (partitionOwner.getWorkerInfo().equals(
           myWorkerInfo) &&
           partitionOwner.getPreviousWorkerInfo().equals(
-              myWorkerInfo)) {
+              myWorkerInfo)) {//2. it is impossible and not necessary to copy a partition between the Same worker.
         throw new IllegalStateException(
             "updatePartitionOwners: Impossible to have the same " +
                 "previous and current worker info " + partitionOwner +
                 " as me " + myWorkerInfo);
-      } else if (partitionOwner.getWorkerInfo().equals(myWorkerInfo)) {
+      } else if (partitionOwner.getWorkerInfo().equals(myWorkerInfo)) {//3.copy partition from another worker.
         dependentWorkerSet.add(partitionOwner.getPreviousWorkerInfo());
       } else if (partitionOwner.getPreviousWorkerInfo().equals(
-          myWorkerInfo)) {
+          myWorkerInfo)) {//4.copy a partition to another worker.
         if (workerPartitionOwnerMap.containsKey(
             partitionOwner.getWorkerInfo())) {
           workerPartitionOwnerMap.get(
